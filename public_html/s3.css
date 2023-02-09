@@ -1,0 +1,48 @@
+html {
+	background-color: #b66a07;
+	font-family: 'Calibri', Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	text-align: center;
+}
+
+table {
+	background-color: #927faa3e;
+	border-color: #000000f3;
+	border-style: solid;
+	border-width: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+    
+}
+
+
+td {
+	border-style: double;
+	border-width: 10px;
+	text-align: center;
+    background-color: #9d968d;
+    width: 50px;
+    height: 50px;
+}
+
+input[readonly] {
+	text-align: right;
+}
+
+input[type="button"] {
+	padding: 0.2em;
+}
+
+.mainbutton {
+	width: 36px;
+}
+
+/* Select only the "op" buttons, on the right column. */
+input:not(.mainbutton):not([type="text"]) {
+	width: 250px;
+}
+button {
+	width: 30px;
+    height: 30px;
+}

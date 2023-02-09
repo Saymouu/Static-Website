@@ -1,0 +1,81 @@
+<!doctype html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="jquery-1.11.1.min.js"></script>
+	<link href="s5.css" rel="stylesheet" type="text/css">
+	<script>
+		function init(){
+			var TodoListe_Tab=JSON.parse(localStorage.TodoListe);
+			localStorage.TodoListe=JSON.stringify(TodoListe_Tab); 
+			for (var i=0;i<TodoListe_Tab.length;i++){	
+				$('table').append('<tr>' + '<td>'+ TodoListe_Tab[i].titre +'</td>'
+					+ '<td>'+ TodoListe_Tab[i].date +'</td>'
+					+ '<td>'+ TodoListe_Tab[i].desc +'</td>'
+					+ '<td>'+ TodoListe_Tab[i].importance +'</td>'				
+					+ '</tr>');
+			}	
+		}
+		$(document).ready(function(){
+			$("#initBtn").click(function(){ 
+				if (localStorage.TodoListe){
+						alert(" vous allez Tout initialise :"+localStorage.TodoListe);
+						localStorage.clear();
+						sessionStorage.clear();
+				$('table').html("");}
+			});
+			$("#submitBtn").click(function(){        
+					var Todo={titre:"", desc:"", date:"", importance:0}; 
+					// initialisation de l'Objet Todo 
+					Todo.titre= document.getElementById("titre_tache").value;
+					Todo.desc= document.getElementById("descript").value;
+					Todo.date= document.getElementById("date_tache").value;
+					Todo.importance= document.getElementById("etat_tache").value;
+
+					if (!localStorage.TodoListe){	
+						let TodoListe_Tab=[] ; // d�finition du tableau TodoListe_Tab
+						TodoListe_Tab.push(Todo);// Ajouter Todo au tableau TodoListe_Tab
+						//On place le tableau en memoire en transformant le JSON en chaine de caracteres
+						localStorage.TodoListe= JSON.stringify(TodoListe_Tab);
+					}
+					else{     
+						// recuperer la chaine TodoListe sauvegardee et la retransforme en tableau
+						var TodoListe_Tab=JSON.parse(localStorage.TodoListe);
+						TodoListe_Tab.push(Todo);// Ajouter Todo au tableau TodoListe_Tab
+						localStorage.TodoListe=JSON.stringify(TodoListe_Tab); 
+						//On replace le tableau en memoire en transformant le JSON en chaine de caracteres
+					}
+					$('table').html(""); // suprimer le contenue de la table 
+					for (var i=0;i<TodoListe_Tab.length;i++){	
+					// Cr�er les lignes dans la table pour chaque tache
+					$('table').append('<tr>' + '<td>'+ TodoListe_Tab[i].titre +'</td>'
+									+ '<td>'+ TodoListe_Tab[i].date +'</td>'
+									+ '<td>'+ TodoListe_Tab[i].desc +'</td>'
+									+ '<td>'+ TodoListe_Tab[i].importance +'</td>'				
+									+ '</tr>');
+					}
+			$("#formulaire").trigger("reset");// Reinitialiser le formulaire avec Jquery
+		});
+	});
+	</script>
+</head>
+
+<body onload="init()">
+    <div class="container">
+    	<h2>To Do List</h2>
+		<form id="formulaire">
+			<label for="titre_tache">Titre de tache:</label>
+			<input type="text" id="titre_tache" required>
+			<label for="date_tache">Date </label>
+			<input type="date" id="date_tache" required>
+			<label for="texte">Description</label>
+			<textarea id="descript" ></textarea>
+			<label for="etat_tache">Importance</label>
+			<input type="range" id="etat_tache" min="10" max="100">
+			<input type="button" id="submitBtn" value="Ajouter"/>
+			<input type="button" id="initBtn" value="Supprimer Tout"/>
+		</form>
+		<br/>
+		<table id="tacheListe"></table> 
+    </div>
+</body>
+</html>

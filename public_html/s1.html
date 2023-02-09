@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+<title>Fiche Multiassociations</title>
+</head>
+<body>
+    <table width=100%>
+        <tr>
+            <td width=33%></td>
+            <td width=33%>
+                <h1>Piquenique Multiassociations</h1>
+                <img src="s1_repas.jpg">
+                <h3>Inscriptions</h3>
+                <form method="get">
+                    Prénom: <input type="text" name="prnm">
+                    <br><br>
+            
+                    Mot de passe: <input type="text" name="mdp">
+                    <br><br>
+
+                    Association: 
+                    <select>
+                        <option value="1">Association1</option>
+                        <option value="2">Association2</option>
+                        <option value="3">Association3</option>
+                    </select>
+                    <br><br>
+
+                    Disponibilités pour la semaine du:
+                    <input type="week" name="dte">
+
+                    <br><br>
+                    <input type="checkbox" name="box1" value="Lundi" value="Lundi">
+                    <label for="box1"> Lundi</label>
+                    <input type="checkbox" name="box2" value="Mardi" value="Mardi">
+                    <label for="box1"> Mardi</label>
+                    <input type="checkbox" name="box3" value="Mercredi" value="Mercredi">
+                    <label for="box1"> Mercredi</label>
+                    <input type="checkbox" name="box4" value="Jeudi" value="Jeudi">
+                    <label for="box1"> Jeudi</label>
+                    <input type="checkbox" name="box5" value="Vendredi" value="Vendredi">
+                    <label for="box1"> Vendredi</label>
+                    <br><br>
+
+                    Contribution:
+                    <input type="radio"  name="aliments" value="Entree">
+                    <label for="aliments">Entree</label>
+                    <input type="radio"  name="aliments" value="Plat">
+                    <label for="aliments">Plat</label>
+                    <input type="radio"  name="aliments" value="Dessert">
+                    <label for="aliments">Dessert</label>
+                    <br><br>
+                    
+                    <input type="submit" value="Soummettre">
+                </form>
+            </td>
+            <td width=33%></td>
+        </tr>
+    </table>
+        
+</body>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Exercice Drag & Drop</title>
+<script>
+    function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+    }
+    function allowDrop(ev) {
+    ev.preventDefault();
+    }
+    function dragging(event) {
+    document.body.style.backgroundColor="BLUE";
+    }
+    function dropping(event) {
+    document.body.style.backgroundColor="RED";
+    }
+    function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+    }
+  </script>
+</script>
+</head>
+
+<body>
+    <h1>Drag the madelaine image into the coffe:</h1>
+    <div> 
+        <img src="s5_tassecafe.jpg" id="t1" width="300" height="250" style="border: solid black 1px;" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+    </div>
+    <br>
+    <img id="m1" src="s5_madelaine.png"  draggable="true" ondrag="dragging(event)" ondragend="dropping(event)" ondragstart="drag(event)" >
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="jquery-1.11.1.min.js"></script>
+	<link href="s5.1.css" rel="stylesheet" type="text/css">
+	<script>
+		function func(){
+			if(!localStorage.numv){
+				localStorage.numv=1;
+			}
+			else{
+				localStorage.numv++;
+			}
+
+			function successFunction(position){
+				const latitude = position.coords.latitude;
+				const longitude = position.coords.longitude;
+				alert("Nombres de visites: "+ localStorage.numv+ '. Votre position est: '+latitude+ ' '+longitude);
+				//document.getElementById("map").href= "https://www.openstreetmap.org/#map=18/"+${latitude}+"/"+${longitude};
+			} 
+			if (!navigator.geolocation){
+				alert('No Geolocation.');
+			}
+			else{ 
+				navigator.geolocation.getCurrentPosition(successFunction);
+			}
+		}
+	</script>
+</head>
+
+<body onload="func()">
+    <h2>Contact</h2>
+    <p>Be called back for more information</p>
+    <div>
+		<form id="formulaire">
+			<label for="fname">First name (*)</label>
+			<input type="text" id="fname" placeholder="First Name" required oninput="sessionStorage.setItem('fname', this.value);"><br><br>
+			<label for="lname">Last name (*) </label>
+			<input type="text" id="lname" placeholder="Last Name" required oninput="sessionStorage.setItem('lname', this.value);"><br><br>
+			<label for="list">You want to be contacted by</label>
+			<select>  
+                <option value = "Phone"> Phone   
+                </option>  
+                <option value = "Message"> Message   
+                </option>  
+            </select><br>
+			<label for="phone">Phone number</label>
+            <input type="tel" id="phone"><br><br>
+            <label for="date">When (*)</label>
+			<input type="date" id="date" required><br><br>
+            <label for="time1">Between (*)</label>
+			<input type="time" id="time1" required> and <input type="time" id="time2" required><br><br>
+			<input type="reset" value="Cancel"> <input type="submit" value="Submit"> 
+		</form> 
+    </div>
+</body>
+</html>

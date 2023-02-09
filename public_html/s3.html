@@ -1,0 +1,117 @@
+<!doctype html>
+<head>
+<script>
+  function calculer() 
+         { 
+             let a = document.getElementById("output").value 
+             let b = eval(a) 
+             document.getElementById("output").value = b 
+         } 
+function afficher(val) 
+         { 
+             document.getElementById("output").value+=val 
+         } 
+function effacer() 
+         { 
+             document.getElementById("output").value = "" 
+         } 
+</script>
+
+</head>
+<body>
+    <link rel="stylesheet" href="s3.css">
+    
+<table class="calculator">
+   
+    <tr>
+        Calculatrice
+        
+    </tr>
+    <tr class="output">
+        <td colspan="4"><input class="output" id="output"/></td> 
+    </tr>
+    
+    <tr>
+        <td>
+           <button id="1" onclick="afficher('1')">1</button> 
+        </td>
+        <td>
+            <button id="2" onclick="afficher('2')">2</button> 
+        </td>
+        <td>
+            <button id="3"onclick="afficher('3')">3</button> 
+        </td>
+        <td>
+            <button id="/" onclick="afficher('/')">/</button>   
+        </td>
+    
+
+    </tr>
+    <tr>
+        <td>
+            <button id="4" onclick="afficher('4')">4</button> 
+        </td>
+        <td>
+            <button id="5" onclick="afficher('5')">5</button> 
+        </td>
+        <td>
+            <button id="6" onclick="afficher('6')">6</button> 
+        </td>
+        <td>
+            <button id="*" onclick="afficher('*')">*</button> 
+        </td>
+        
+        
+    </tr>
+    <tr>
+        <td>
+            <button id="7" onclick="afficher('7')">7</button> 
+        </td>
+        <td>
+            <button id="8" onclick="afficher('8')">8</button> 
+        </td>
+        <td>
+            <button id="9" onclick="afficher('9')">9</button> 
+        </td>
+        <td>
+            <button id="-" onclick="afficher('-')">-</button> 
+        </td>
+        
+        
+    </tr>
+    <tr>
+        <td>
+            <button id="&lt;-" onclick="afficher('&lt;-')">&lt;-</button>  
+        </td>
+        <td>
+            <button id="0" onclick="afficher('0')">0</button> 
+        </td>
+        <td>
+            <button id="+" onclick="afficher('+')">+</button> 
+        </td>
+        <td>
+            <button id="=" onclick="calculer()">=</button> 
+        </td>
+       
+        
+    </tr>
+    <tr>
+        <td>
+            <button id="CE" onclick="effacer()">CE</button> 
+        </td>
+        <td>
+            <button id="+|-" onclick="afficher('+|-')">+|-</button>
+        </td>
+        <td>
+            <button id="," onclick="afficher('.')">,</button> 
+        </td>
+        <td>
+            <button id="%" onclick="afficher('%')">%</button>  
+        </td>
+        
+        
+    </tr>
+</table>
+
+
+</body>
